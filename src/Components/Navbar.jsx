@@ -4,103 +4,44 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const toggleNavbar = () => {
-        setIsOpen(!isOpen);
-    };
+    const toggleNavbar = () => setIsOpen(!isOpen);
+
+    const linkClass = ({ isActive }) =>
+        isActive
+            ? "text-primary border-b-2 border-primary"
+            : "text-gray-700 hover:text-primary transition";
 
     return (
-        <nav className="nav bg-white z-10 top-0 border-b-[1px] border-gray-700">
-            <div className="max-w-7xl mx-auto px-8">
-                <div className="flex items-center justify-between sm:py-3 py-2">
-                    <div className="flex items-center justify-between w-full">
-                        <div className="flex-shrink-0 text-[#070f4e]">
-                            {/* <img
-                                src={logo}
-                                alt="Logo"
-                                className="w-[90px] lg:w-[130px]"
-                            /> */}
-                            <h1 className="uppercase font-bold sm:text-2xl">Logo</h1>
-                        </div>
-                        <div className="hidden md:block font-semibold">
-                            <div className="ml-10 flex items-baseline space-x-8">
-                                <NavLink
-                                    to="/"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? "nav-link-active"
-                                            : "nav-link"
-                                    }
-                                >
-                                    Home
-                                </NavLink>
-                                <NavLink
-                                    to="/about"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? "nav-link-active"
-                                            : "nav-link"
-                                    }
-                                >
-                                    About
-                                </NavLink>
-                                <NavLink
-                                    to="/services"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? "nav-link-active"
-                                            : "nav-link"
-                                    }
-                                >
-                                    Services
-                                </NavLink>
-
-                                <NavLink
-                                    to="/contact"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? "nav-link-active"
-                                            : "nav-link"
-                                    }
-                                >
-                                    Contact
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="-mr-2 flex md:hidden">
-                        <button
-                            onClick={toggleNavbar}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-[#3E4095] hover:text-[#3E4095] hover:bg-white focus:outline-none"
+        <nav className="bg-white shadow-sm border-b border-gray-200 fixed w-full top-0 z-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between h-16 items-center">
+                    <h1 className="text-2xl font-bold text-primary">LOGO</h1>
+                    <div className="hidden md:flex space-x-8 items-center">
+                        <NavLink to="/" className={linkClass}>Home</NavLink>
+                        <NavLink to="/products" className={linkClass}>Products</NavLink>
+                        <NavLink to="/about" className={linkClass}>About</NavLink>
+                        <NavLink to="/contact" className={linkClass}>Contact</NavLink>
+                        <NavLink to="/price" className={linkClass}>Pricing</NavLink>
+                        <NavLink
+                            to="/trial"
+                            className="ml-4 px-4 py-2 bg-primary text-white rounded hover:bg-primary  transition text-sm font-medium"
                         >
-                            {!isOpen ? (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M4 6h16M4 12h16m-7 6h7"
-                                    />
+                            Start Trial
+                        </NavLink>
+                    </div>
+                    <div className="md:hidden">
+                        <button onClick={toggleNavbar} className="text-primary focus:outline-none">
+                            {isOpen ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                                     viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                          d="M6 18L18 6M6 6l12 12"/>
                                 </svg>
                             ) : (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M6 18L18 6M6 6l12 12"
-                                    />
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                                     viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                          d="M4 6h16M4 12h16m-7 6h7"/>
                                 </svg>
                             )}
                         </button>
@@ -109,53 +50,24 @@ const Navbar = () => {
             </div>
 
             {isOpen && (
-                <div className="md:hidden bg-gray-200 flex justify-center items-center">
-                    <div className="px-2 py-2 pb-4 space-x-8 sm:px-3 text-[14px] sm:text-[16px] font-semibold">
+                <div className="md:hidden bg-white px-4 pt-4 pb-6 shadow-md">
+                    <div className="space-y-4 text-gray-700 font-medium">
+                        <NavLink to="/" className={linkClass}>Home</NavLink>
+                        <NavLink to="/products" className={linkClass}>Products</NavLink>
+                        <NavLink to="/about" className={linkClass}>About</NavLink>
+                        <NavLink to="/contact" className={linkClass}>Contact</NavLink>
+                        <NavLink to="/price" className={linkClass}>Pricing</NavLink>
                         <NavLink
-                            to="/"
-                            className={({ isActive }) =>
-                                isActive
-                                    ? "nav-link-active"
-                                    : "nav-link"
-                            }
+                            to="/trial"
+                            className="block w-full text-center px-4 py-2 bg-primary text-white rounded hover:bg-primary transition"
                         >
-                            Home
-                        </NavLink>
-                        <NavLink
-                            to="/about"
-                            className={({ isActive }) =>
-                                isActive
-                                    ? "nav-link-active"
-                                    : "nav-link"
-                            }
-                        >
-                            About
-                        </NavLink>
-                        <NavLink
-                            to="/services"
-                            className={({ isActive }) =>
-                                isActive
-                                    ? "nav-link-active"
-                                    : "nav-link"
-                            }
-                        >
-                            Services
-                        </NavLink>
-                        <NavLink
-                            to="/contact"
-                            className={({ isActive }) =>
-                                isActive
-                                    ? "nav-link-active"
-                                    : "nav-link"
-                            }
-                        >
-                            Contact
+                            Start Trial
                         </NavLink>
                     </div>
                 </div>
             )}
         </nav>
-    );
+    ); 
 };
 
 export default Navbar;

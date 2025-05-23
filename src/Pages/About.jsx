@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import WhoWeAreBenefits from "../About-Component/WhoWeAreBenefits"
 
 const About = () => {
   useEffect(() => {
@@ -6,8 +7,8 @@ const About = () => {
   }, []);
 
   return (
-    <div className='w-full min-h-[50vh] flex justify-center items-center'>
-      About us
+    <div className='w-full h-auto flex justify-center items-center'>
+      <WhoWeAreBenefits/>
     </div>
   )
 }

@@ -1,5 +1,13 @@
 import React from "react";
 import { useEffect } from "react";
+import HeroSection from "../Home-Components/Hero";
+import FeaturesSection from "../Home-Components/Features";
+import IntegrationsSection from "../Home-Components/Integration";
+import TestimonialsSection from "../Home-Components/Testimonial";
+import WhyChoose from "../Home-Components/WhyChoose"
+import GetStarted from "../Home-Components/GetStarted"
+import SliderImages from "../Home-Components/SliderImages"
+import Faq from "../Home-Components/Faq"
 
 
 const Home = () => {
@@ -10,8 +18,15 @@ const Home = () => {
 
   return (
     <div
-      className="w-full min-h-[50vh] flex  justify-center items-center " data-aos="fade-up" >
-      Home
+      className="w-full h-auto flex flex-col  justify-center items-center " data-aos="fade-up" >
+      <HeroSection/>
+      <FeaturesSection/>
+      <IntegrationsSection/>
+      <SliderImages/>
+      <TestimonialsSection/>
+      <WhyChoose/>
+      <GetStarted/>
+      <Faq/>
     </div>
   );
 };

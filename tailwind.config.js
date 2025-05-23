@@ -13,12 +13,11 @@ export default {
       },
      
         
-        colors: {
-         'primary': '#070F4E',
-         
-          'secondary': '#FDE047', 
-         
-        },
+      colors: {
+        primary: '#7C4585',
+        secondary: '#C95792',
+        light:'#F8B55F' // (light complementary green suggestion)
+      },
       },
     },
 

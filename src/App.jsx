@@ -3,12 +3,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Layout from "./Layout"
 import Home from "./Pages/Home"
 import About from "./Pages/About"
-import Services from "./Pages/Services"
+import Products from "./Pages/Products"
 import Contact from "./Pages/Contact"
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Loading from './Components/Loading';
+import Price from './Pages/Price';
+import Trial from "./Pages/Trial"
 
 
 
@@ -37,8 +39,10 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/price" element={<Price/>} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/trial" element={<Trial/>} />
           </Route>
         </Routes>
       </BrowserRouter>

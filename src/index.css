@@ -119,7 +119,7 @@
   -webkit-background-clip: text;
   color: transparent;
 }
-
+ 
 .bounceMedium {
   animation: bounceMedium 3s infinite;
 }
@@ -137,6 +137,7 @@
     transform: scale(1);
     /* opacity: 0; */
 }
+
 }
 
 .animate-slow-ping {
@@ -144,6 +145,63 @@
 }
 
 
+@keyframes marquee {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 20s linear infinite;
+}
+
+.integration-card {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.integration-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.testimonial-card {
+  transition: all 0.3s ease-in-out;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  /* font-family: 'Nunito', sans-serif; */
+  font-weight: 700;
+  /* color: #626F47; Dark Green */
+}
+
+p {
+  /* font-family: 'Lora', serif; */
+  color: #4a4a4a;
+}
+
+.italic {
+  font-style: italic;
+  color: #555;
+}
 
 
 
